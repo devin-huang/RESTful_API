@@ -26,7 +26,7 @@ redis官网仅是linux安装教程，window须在github下载zip后缀文件 (ht
 
 安装 RedisDesktopManager 可视化工具
 
-#### 设置密码
+#### 设置密码 (默认密码为空)
 
 1. 根目录启动 `redis-cli.exe`
 
@@ -52,6 +52,12 @@ requirepass 123
 - 成功则弹出：requirepass 123
 ```
 
-### express 使用 redis
+### Express 使用 redis
 
-具体参考: src/utlis/redis
+具体参考: src/utils/redis
+
+## Json Web Token（JWT）用户验证
+
+作用：通过 URL, POST 参数或者在 HTTP header 通信双方之间以 JSON 对象的形式安全传递信息的方法, 这种通信属于明文通信请别把密码也写入，一般用于Token验证
+
+`express-jwt`验证jwt对象  `jsonwebtoken` 创建jwt对象
