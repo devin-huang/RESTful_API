@@ -74,6 +74,6 @@ requirepass 123
 
 `express-jwt` 验证jwt对象  （图中步骤5）
 
-### Express JWT 
+### Express & JWT 
 
 具体参考: `src/utils/JWT`
