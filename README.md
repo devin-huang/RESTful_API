@@ -1,12 +1,14 @@
 # RESTful_API
 
+
+
 ## redis (内存数据库)
 
 作用: 多次请求数据库造成性能开销，如果存储到服务端 Session 消耗内存且会被清空; 而 redis (内存数据库)就是在不访问数据库的基础上获取数据（可以设置过期时间）
 
 ### windows 安装 redis
 
-redis官网仅是linux安装教程，window须在github下载zip后缀文件 (https://github.com/microsoftarchive/redis/tags)[https://github.com/microsoftarchive/redis/tags]
+redis官网仅是linux安装教程，window须在github下载zip后缀文件 [https://github.com/microsoftarchive/redis/tags](https://github.com/microsoftarchive/redis/tags)
 
 #### 安装
 
@@ -54,9 +56,11 @@ requirepass 123
 
 ### Express 使用 redis
 
-参考文档: (https://github.com/NodeRedis/node_redis)[https://github.com/NodeRedis/node_redis]
+参考文档: [https://github.com/NodeRedis/node_redis](https://github.com/NodeRedis/node_redis)
 
 具体参考: `src/utils/redis`
+
+
 
 ## Json Web Token（JWT）用户验证
 
