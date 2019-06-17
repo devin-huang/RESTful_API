@@ -60,4 +60,6 @@ requirepass 123
 
 作用：通过 URL, POST 参数或者在 HTTP header 通信双方之间以 JSON 对象的形式安全传递信息的方法, 这种通信属于明文通信请别把密码也写入，一般用于Token验证
 
+![](https://devin-huang.github.io/img/pubilc/jwt.png)
+
 `express-jwt`验证jwt对象  `jsonwebtoken` 创建jwt对象
