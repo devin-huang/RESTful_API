@@ -66,6 +66,8 @@ requirepass 123
 
 ### 原理
 
+参考文档: [https://www.jianshu.com/p/180a870a308a](https://www.jianshu.com/p/180a870a308a)
+
 作用：通过 URL, POST 参数或者在 HTTP header 通信双方之间以 JSON 对象的形式安全传递信息的方法, 这种通信属于明文通信请别把密码也写入，一般用于Token验证
 
 ![](https://devin-huang.github.io/img/pubilc/jwt.png)
