@@ -62,4 +62,6 @@ requirepass 123
 
 ![](https://devin-huang.github.io/img/pubilc/jwt.png)
 
-`express-jwt`验证jwt对象  `jsonwebtoken` 创建jwt对象
+`jsonwebtoken` 创建jwt对象 （图中步骤2）
+
+`express-jwt` 验证jwt对象  （图中步骤5）
