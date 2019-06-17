@@ -54,9 +54,13 @@ requirepass 123
 
 ### Express 使用 redis
 
-具体参考: src/utils/redis
+参考文档: (https://github.com/NodeRedis/node_redis)[https://github.com/NodeRedis/node_redis]
+
+具体参考: `src/utils/redis`
 
 ## Json Web Token（JWT）用户验证
+
+### 原理
 
 作用：通过 URL, POST 参数或者在 HTTP header 通信双方之间以 JSON 对象的形式安全传递信息的方法, 这种通信属于明文通信请别把密码也写入，一般用于Token验证
 
@@ -65,3 +69,7 @@ requirepass 123
 `jsonwebtoken` 创建jwt对象 （图中步骤2）
 
 `express-jwt` 验证jwt对象  （图中步骤5）
+
+### Express JWT 
+
+具体参考: `src/utils/JWT`
