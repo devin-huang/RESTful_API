@@ -81,3 +81,11 @@ requirepass 123
 ### Express & JWT 
 
 具体参考: `src/utils/JWT`
+
+## log
+
+主要使用 `morgan` 完成日志记录，而 `file-stream-rotator` 则用于按照日期区分文件保存日志记录
+
+## swagger
+
+
