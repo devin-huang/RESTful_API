@@ -1,32 +1,37 @@
 // API
-const express = require('express');
-const path = require('path')
-const fs = require('fs')
-const morgan = require('morgan')
-const FileStreamRotator = require('file-stream-rotator')
-
+const express = require('express')
 // Import modules
-const swaggerDoc = require('./swaggerDoc');
+const redisConnection = require('./src/utils/redis/redisConnection')
+const swaggerDoc = require('./src/utils/swagger/swaggerDoc');
+const jwtAuth = require('./src/utils/JWT')
 const view = require('./src/view/index')
-
+const logRecode = require('./src/utils/log')
+const test = require('./src/routes/test')
 // Init
 const app = express()
-const logDirectory = path.join(__dirname, 'log')
 
-// --Start-- 创建日志记录写入log路径下的文件 Start
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
-let accessLogStream = FileStreamRotator.getStream({
-  date_format: 'YYYYMMDDYYYY',
-  filename: path.join(logDirectory, 'access-%DATE%.log'),
-  frequency: 'daily',
-  verbose: false
-})
-app.use(morgan('combined', {stream: accessLogStream}))
-// --END--
+// 日志
+app.use(logRecode)
 
-swaggerDoc(app) // swagger setting
+// swagger setting
+swaggerDoc(app)
+
+
+app.use('/test', test)
+
+// 啓用Redis
+// redisConnection()
+
+// JWT验证
+app.use(jwtAuth)
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).send(err.message);
+  }
+});
+
+// 需要在JWT后面载入否则会直接显示数据
 view(app)
-
 
 app.listen(8002, function (){
   console.log('Example app listening on port 8002!');

@@ -22,7 +22,6 @@ var router = express.Router();
  *         description: hello world
  */
 router.get('/', function(req, res, next) {
-  console.log(req,'=============')
   res.json({results: 'index'});
 });
 

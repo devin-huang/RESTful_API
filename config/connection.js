@@ -11,6 +11,13 @@ const getConnection = (callback) => {
     typeof callback === 'function' && callback(connection)
   })
 }
+// 状态码
+const statusCode = {
+  200: 'Successful operation',
+  301: 'Moved Permanently',
+  404: 'Not Found',
+  500: 'Internal Server Error'
+}
 
 module.exports = {
   // 对数据库SQL操作
@@ -28,11 +35,12 @@ module.exports = {
     })
   },
   // 设置返回的数据格式
-  dataFormat (data) {
+  dataFormat (data, status = 200) {
+    
     return {
-      "status": "status",
+      "status": status,
       "data": data,
-      "message": "string",
+      "message": statusCode[status],
       "serverTime": new Date()
     }
   }

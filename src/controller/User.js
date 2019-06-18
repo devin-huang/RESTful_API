@@ -2,7 +2,7 @@ const user = require('../model/DbUser')
 const { querySQL, dataFormat } = require('../../config/connection')
 
 module.exports = {
-  getUser: (req, res) => {
+  getUser: (req, res, next) => {
     // 获取到对应SQL语句
     let sql = user.getUser()
     // 请求数据库返回JSON格式数据
@@ -10,12 +10,12 @@ module.exports = {
       res.json(dataFormat(data))
     })
   },
-  createUser: (req, res) => {
+  createUser: (req, res, next) => {
     // console.log(req.body)
     let sql = user.addUser(req.body)
     res.json(querySQL(sql))
   },
-  updateUser: (req, res) => {
+  updateUser: (req, res, next) => {
     console.log(req.body)
     let sql = user.updateUser()
     querySQL(sql, (data) => {
