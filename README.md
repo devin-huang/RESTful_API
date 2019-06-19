@@ -2,7 +2,9 @@
 
 
 
-## redis (内存数据库) :sunflower:
+## redis (内存数据库) 
+
+:sunflower: :blossom: :tulip:
 
 作用: 多次请求数据库造成性能开销，如果存储到服务端 Session 消耗内存且会被清空; 而 redis (内存数据库)就是在不访问数据库的基础上获取数据（可以设置过期时间）
 
@@ -62,7 +64,9 @@ requirepass 123
 
 
 
-## Json Web Token（JWT）用户验证 :sunflower:
+## Json Web Token（JWT）用户验证
+
+:sunflower: :blossom: :tulip:
 
 ### 原理
 
@@ -82,15 +86,23 @@ requirepass 123
 
 具体参考: `src/utils/jwt`
 
-## log :sunflower:
+## log
+
+:sunflower: :blossom: :tulip:
 
 主要使用 `morgan` 完成日志记录，而 `file-stream-rotator` 则用于按照日期区分文件保存日志记录
 
-## swagger :sunflower:
- 
-## MVC :sunflower:
+## swagger
 
-## MySql :sunflower:
+:sunflower: :blossom: :tulip:
+ 
+## MVC
+
+:sunflower: :blossom: :tulip:
+
+## MySql
+
+:sunflower: :blossom: :tulip:
 
 ### window安装mySql
 
