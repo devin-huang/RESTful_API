@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var users = [];
+var users = [123,123,213];
 
 /**
  * @swagger

@@ -2,11 +2,11 @@
 const express = require('express')
 // Import modules
 const redisConnection = require('./src/utils/redis/redisConnection')
-const swaggerDoc = require('./src/utils/swagger/swaggerDoc');
-const jwtAuth = require('./src/utils/JWT')
-const view = require('./src/view/index')
-const logRecode = require('./src/utils/log')
-const test = require('./src/routes/test')
+const swaggerDoc = require('./swagger/swaggerDoc');
+const jwtAuth = require('./src/utils/jwt')
+const APIview = require('./src/view/index')
+const logRecode = require('./log/index')
+
 // Init
 const app = express()
 
@@ -15,9 +15,6 @@ app.use(logRecode)
 
 // swagger setting
 swaggerDoc(app)
-
-
-app.use('/test', test)
 
 // 啓用Redis
 // redisConnection()
@@ -30,8 +27,8 @@ app.use(function (err, req, res, next) {
   }
 });
 
-// 需要在JWT后面载入否则会直接显示数据
-view(app)
+// 需要在jwt后面载入否则会直接显示数据
+APIview(app)
 
 app.listen(8002, function (){
   console.log('Example app listening on port 8002!');

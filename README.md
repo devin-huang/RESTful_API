@@ -80,7 +80,7 @@ requirepass 123
 
 ### Express & JWT 
 
-具体参考: `src/utils/JWT`
+具体参考: `src/utils/jwt`
 
 ## log
 
