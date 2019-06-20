@@ -72,7 +72,7 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 
 express 里接入 swagger 需要两个包 `swagger-jsdoc` 和` swagger-ui-express` ，前者将 jsdoc 格式的注释转化为 swagger 类型的 json，后者使用这个 json 生产对应的 swagger 页面.接入成功之后我们给接口写的 jsdoc 注释就会自动生成为 swagger 文档页面使用`/api-docs` 查看效果
 
-`swagger/config.js` 基本配置需要注意使用：swagger： '2.0'
+`swagger/config.js` 基本配置需要注意使用：`swagger： '2.0'`
 
 `swagger/swaggerDoc.js` jsdoc全局配置
 
