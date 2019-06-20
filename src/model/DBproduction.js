@@ -36,10 +36,11 @@ module.exports = {
             WHERE id IN (${keys});`
   },
   /**
-   * parmas: [1, 2, 3]
+   * parmas: delList: [1, 2, 3]
    * */
   deleteData: (parmas) => {
-    return `DELETE FROM production WHERE id IN (${parmas.join(',')});`
+    let delList = parmas.delList.join(',')
+    return `DELETE FROM production WHERE id IN (${delList});`
   }
 }
 

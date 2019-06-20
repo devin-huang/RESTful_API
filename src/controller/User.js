@@ -2,7 +2,7 @@ const user = require('../model/DBuser')
 const { querySQL, dataFormat } = require('../../config/connection')
 
 const jwt = require('jsonwebtoken')
-const { MD5_SUFFIX, md5, secretKey } = require('../utils/jwt/info')
+const { MD5_SUFFIX, md5, secretKey } = require('../utils/jwt/config')
 
 module.exports = {
   getUserInfo: (req, res, next) => {

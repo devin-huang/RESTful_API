@@ -1,23 +1,30 @@
-const swaggerUi = require('swagger-ui-express');
-const swaggerJSDoc = require('swagger-jsdoc');
-
+const swaggerUi = require('swagger-ui-express')
+const swaggerJSDoc = require('swagger-jsdoc')
+const { swaggerConfig } = require('./config')
 
 const options = {
   swaggerDefinition: {
-    basePath: '/',
-    openapi: '3.0.0', // Specification (optional, defaults to swagger: '2.0')
+    basePath: swaggerConfig.basePath,
+    swagger: swaggerConfig.swagger, // Specification (optional, defaults to swagger: '2.0')
     info: {
-      title: 'swagger-express-jsdoc', // Title (required)
-      version: '1.0.0', // Version (required)
+      title: swaggerConfig.title, // Title (required)
+      version: swaggerConfig.version, // Version (required)
     },
+    schemes: swaggerConfig.schemes,
+    tags: swaggerConfig.tags
   },
-  apis: ['./src/routes/*.js'], // Path to the API docs
-};
+  apis: swaggerConfig.apis, // Path to the API docs
+}
 
 // Initialize swagger-jsdoc -> returns validated swagger spec in json format
 const swaggerSpec = swaggerJSDoc(options);
 
 module.exports = (app) => {
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+  // 开放 swagger 相关接口，
+  app.get('/swagger.json', function(req, res) {
+    res.setHeader('Content-Type', 'application/json')
+    res.send(swaggerSpec)
+  }),
+  app.use(swaggerConfig.routerPath, swaggerUi.serve, swaggerUi.setup(swaggerSpec))
   
 }

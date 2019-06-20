@@ -4,12 +4,14 @@ const express = require('express')
 const redisConnection = require('./src/utils/redis/redisConnection')
 const swaggerDoc = require('./swagger/swaggerDoc');
 const jwtAuth = require('./src/utils/jwt')
-const APIview = require('./src/view/index')
+const Routers = require('./src/routes/index')
 const logRecode = require('./log/index')
 
 // Init
 const app = express()
-
+app.get('/hello', (req, res) => {
+  res.json({name: 'world'})
+})
 // 日志
 app.use(logRecode)
 
@@ -28,7 +30,7 @@ app.use(function (err, req, res, next) {
 });
 
 // 需要在jwt后面载入否则会直接显示数据
-APIview(app)
+Routers(app)
 
 app.listen(8002, function (){
   console.log('Example app listening on port 8002!');

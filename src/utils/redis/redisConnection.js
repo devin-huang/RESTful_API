@@ -1,4 +1,4 @@
-const { port, address, password } = require('./info')
+const { port, address, password } = require('./config')
 const redis = require('redis')
 const client = redis.createClient(port, address, password)
 
