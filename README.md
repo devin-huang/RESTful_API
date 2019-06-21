@@ -57,7 +57,7 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 
 ### 原理
 
-主要使用密钥+用户信息（非密码）来验证双方 （该项目密码：1.MD5加密 2.MD5_SUFFIX添加后缀）
+主要使用密钥+用户信息（非密码）来验证双方  **（该项目密码：1.MD5加密 2.MD5_SUFFIX添加后缀）**
 
 参考文档: [https://www.jianshu.com/p/180a870a308a](https://www.jianshu.com/p/180a870a308a)
 
