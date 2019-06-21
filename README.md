@@ -69,11 +69,17 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 
 `express-jwt` 验证jwt对象  （图中步骤5）
 
+
+
+
 ## log
 
 :sunflower: :blossom: :tulip:
 
 主要使用 `morgan` 完成日志记录，而 `file-stream-rotator` 则用于按照日期区分文件保存日志记录
+
+
+
 
 ## Swagger
 
@@ -88,6 +94,9 @@ express 里接入 swagger 需要两个包 `swagger-jsdoc` 和` swagger-ui-expres
 `src/routes` jsdoc单独配置
 
 **使用swagger需要token时webpack环境变量设置开发环境无需验证token即可**
+
+
+
 
 ## redis (内存数据库) 
 
@@ -148,6 +157,8 @@ requirepass 123
 -a: 密码和 -p 一样，没设置就不用写 -a
 - 成功则弹出：requirepass 123
 ```
+
+
 
 ## webapck
 
