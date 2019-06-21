@@ -24,11 +24,17 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 |- package.json                    项目依赖
 ```
 
+
+
+
 ## MVC模式
 
 :sunflower: :blossom: :tulip:
 
 基于前后端而设计开发返回数据，所以View层直接用route替代。运行主文件 `index.js`会依次执行routes -> controller -> model 获取数据
+
+
+
 
 ## MySql
 
@@ -42,13 +48,16 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 
 3. 使用Intelli IDEA 设置可视化Mysql
 
+
+
+
 ## Json Web Token（JWT）用户验证
 
 :sunflower: :blossom: :tulip:
 
 ### 原理
 
-主要使用密钥+用户信息（非密码）来验证双方
+主要使用密钥+用户信息（非密码）来验证双方 （该项目密码：1.MD5加密 2.MD5_SUFFIX添加后缀）
 
 参考文档: [https://www.jianshu.com/p/180a870a308a](https://www.jianshu.com/p/180a870a308a)
 
@@ -77,6 +86,8 @@ express 里接入 swagger 需要两个包 `swagger-jsdoc` 和` swagger-ui-expres
 `swagger/swaggerDoc.js` jsdoc全局配置
 
 `src/routes` jsdoc单独配置
+
+**使用swagger需要token时webpack环境变量设置开发环境无需验证token即可**
 
 ## redis (内存数据库) 
 
@@ -137,3 +148,7 @@ requirepass 123
 -a: 密码和 -p 一样，没设置就不用写 -a
 - 成功则弹出：requirepass 123
 ```
+
+## webapck
+
+:sunflower: :blossom: :tulip:
