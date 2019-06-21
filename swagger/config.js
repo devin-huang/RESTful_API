@@ -10,11 +10,15 @@ module.exports = {
       path.join(__dirname, '../src/routes/*.js')
     ],
     routerPath: '/api-docs',
-    schemes: ['http'],
+    schemes: ['http', 'https'],
     tags: [
       {
         name: 'production',
-        description: "test production list"
+        description: "check production handler"
+      },
+      {
+        name: 'user',
+        description: "check user handler"
       }
     ]
   }

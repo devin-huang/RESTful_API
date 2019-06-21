@@ -8,7 +8,7 @@ module.exports = {
   getUserInfo: (req, res, next) => {
     let params = {
       name: req.body.name,
-      password: `${md5(req.body.password)}` // `${md5(req.body.password)}_${MD5_SUFFIX}` // MD5_SUFFIX用于md5加密后的密码加上后缀
+      password: `${md5(req.body.password)}_${MD5_SUFFIX}` // MD5_SUFFIX用于md5加密后的密码加上后缀
     }
     // 获取到对应SQL语句
     let sql = user.getUser(params)
@@ -18,7 +18,8 @@ module.exports = {
         // jsonWebToken生成token返给前端保存，然后通过express-jwt验证
         let token = jwt.sign({ username: req.body && req.body.name || null }, secretKey, { expiresIn : '2 days' });
         res.json({
-          success: true,
+          status: 200,
+          data: true,
           message: 'Successful operation',
           token: token
         });

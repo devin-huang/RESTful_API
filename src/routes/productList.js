@@ -39,12 +39,14 @@ router.get('/list', production.getProduction)
  *         in: body
  *         required: true
  *         schema:
- *          type: object
- *          properties:
- *            type:
- *              type: string,
- *            description:
- *              type: string
+ *          type: array
+ *          items:
+ *            properties:
+ *              type:
+ *                type: string
+ *                example: button
+ *              description:
+ *                type: string
  *     responses:
  *       200:
  *         description: Successful operation
