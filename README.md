@@ -15,6 +15,7 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
   |- controller                    MVC中的C层
   |- model                         MVC中的M层
   |- routes                        路由文件
+  |- uploadFiles                   上传文件夹
   |- utils                         工具
     |- jwt                         jwt验证
     |- redis                       redis内存数据库
@@ -36,6 +37,8 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 
 
 ## API调试
+
+:sunflower: :blossom: :tulip:
 
 下载： chrome 网上应用店搜索 `Postman` 
 
