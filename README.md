@@ -35,6 +35,13 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 
 
 
+## API调试
+
+下载： chrome 网上应用店搜索 `Postman` 
+
+使用：通过该插件调试 `POST/PUT/DELETE/UPLOAD` 请求
+
+
 
 ## MySql
 
