@@ -9,13 +9,18 @@ module.exports = {
      ]
    * */
   addData: (parmas) => {
-    let filter = ''
-    let keys = Object.keys(parmas[0])
-    parmas.forEach( (e, i) => {
-      let point = i+1 !== parmas.length ? ',' : ''
-      filter += `( '${e.type}', '${e.description}' )${point}`
-    })
-    return `INSERT INTO production ( ${keys.join(',')} ) VALUES ${filter};`
+    try {
+      let filter = ''
+      let keys = Object.keys(parmas[0])
+      parmas.forEach( (e, i) => {
+        let point = i+1 !== parmas.length ? ',' : ''
+        filter += `( '${e.type}', '${e.description}' )${point}`
+      })
+      return `INSERT INTO production ( ${keys.join(',')} ) VALUES ${filter};`
+    } catch (e) {
+      console.log(e)
+    }
+    
   },
   /**
    * parmas: [

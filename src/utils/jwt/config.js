@@ -6,5 +6,5 @@ module.exports = {
     return crypto.createHash('md5').update(pwd).digest('hex');
   },
   // 密钥
-  secretKey: 'devinHuang_2019_test_jwttoken'
+  secretKey: 'devinHuang_2019_test_jwtToken'
 };
