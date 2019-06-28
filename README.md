@@ -8,7 +8,7 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 
 ```
 项目结构：
-
+|- build                           webapck
 |- config                          数据库配置与连接
 |- log                             日志配置与记录
 |- /src                            
@@ -174,3 +174,7 @@ requirepass 123
 ## webapck
 
 :sunflower: :blossom: :tulip:
+
+参考 [Express + Webapck](https://medium.com/@binyamin/creating-a-node-express-webpack-app-with-dev-and-prod-builds-a4962ce51334) 、 package.json
+
+`node *.js` 提示 `Unexpected token import`错误： Node 8.* 基于commonJS规范无法识别ES6 `import/export`,利用webpack/babel将其转化为commonJS规范，对打包生产项目使用 `node *.js` 启动 
