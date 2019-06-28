@@ -1,4 +1,5 @@
 const fs = require('fs')
+const crypto = require('crypto')
 const path = require('path')
 const user = require('./user')
 const productList = require('./productList')
@@ -16,17 +17,27 @@ let content = `get方式获取所有产品：<a href="http://localhost:8002/prod
                     <a href="http://localhost:8002/productList/list">http://localhost:8002/productList/list</a>`
 
 module.exports = (app) => {
-  app.use('/index', (req, res)=> {
+  app.use('/index', (req, res, next)=> {
     fs.lstat(path.join(__dirname, '../uploadFiles/test.js'), function(err, stats){
       let modifyTime = new Date(stats.mtime).getTime()
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "X-Requested-With");
-      res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-      res.header("ETag", 'ETagETagETag');
+      res.setHeader("Access-Control-Allow-Origin", "*")
+      res.setHeader("Access-Control-Allow-Headers", "X-Requested-With")
+      res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
+      // 缓存时间 （一天：60x60x24=86400 ）
+      res.setHeader('Cache-Control', 'public, max-age=86400')
+      
       // 获取文件的更新时间
-      res.header("If-Modified-Since", modifyTime);
-      res.header("X-Powered-By",' express 4.17.1')
-      // res.header("Content-Type", "application/json;charset=utf-8");
+      res.setHeader("If-Modified-Since", modifyTime)
+      res.setHeader("X-Powered-By",' express 4.17.1')
+      // res.header("Content-Type", "application/json;charset=utf-8")
+      if (req.headers['if-none-match']) {
+        // res.statusCode = 304
+      }
+      else {
+        console.log(222222)
+        // 获取项目版本
+        res.setHeader("ETag", crypto.createHash('md5').update('1.0.2').digest('hex'))
+      }
       res.send(content)
     })
   }),
