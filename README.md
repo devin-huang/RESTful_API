@@ -82,7 +82,7 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 
 
 
-## log
+## log（日志）
 
 :sunflower: :blossom: :tulip:
 
@@ -103,6 +103,7 @@ express 里接入 swagger 需要两个包 `swagger-jsdoc` 和` swagger-ui-expres
 
 `src/routes` jsdoc单独配置
 
+**目前没有找到JAVA的接口函数自动更新方式，有了解的小伙伴可以分享下**
 **使用swagger需要token时webpack环境变量设置开发环境无需验证token即可**
 
 
