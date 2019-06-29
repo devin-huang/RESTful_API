@@ -5,8 +5,8 @@ const user = require('./user')
 const productList = require('./productList')
 
 
-
-let content = `get方式获取所有产品：<a href="http://localhost:8002/productList/list">http://localhost:8002/productList/list</a>
+let content = `<h2 style="color: cornflowerblue">环境变量为: ${process.env.NODE_ENV} token ${process.env.NODE_ENV === 'production'? '' : '不' }需要验证</h2>
+                get方式获取所有产品：<a href="http://localhost:8002/productList/list">http://localhost:8002/productList/list</a>
                 </br>
                 </br>
                 <h4>使用chrome插件Postman调试非get请求</h4>
@@ -27,7 +27,6 @@ module.exports = (app) => {
       if (req.headers['if-none-match']) {
         // res.statusCode = 304
       } else {
-        // 获取项目版本
         res.setHeader("ETag", crypto.createHash('md5').update('1.0.2').digest('hex'))
       }
       res.setHeader("Access-Control-Allow-Origin", "*")
@@ -35,8 +34,6 @@ module.exports = (app) => {
       res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
       // 缓存时间 （一天：60x60x24=86400 ）
       res.setHeader('Cache-Control', 'public, max-age=86400')
-      
-      
       res.setHeader("X-Powered-By",' express 4.17.1')
       // res.header("Content-Type", "application/json;charset=utf-8")
       res.send(content)
