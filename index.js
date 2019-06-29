@@ -1,13 +1,13 @@
 // API
-import express from 'express'
-import compression from 'compression'
+const express = require('express')
+const compression = require('compression')
 
 // Import modules
-import redisConnection from './src/utils/redis/redisConnection'
-import swaggerDoc from './swagger/swaggerDoc'
-import jwtAuth from './src/utils/jwt'
-import Routers from './src/routes/index'
-import logRecode from './log/index'
+const redisConnection = require('./src/utils/redis/redisConnection')
+const swaggerDoc = require('./swagger/swaggerDoc')
+const jwtAuth = require('./src/utils/jwt')
+const Routers = require('./src/routes/index')
+const logRecode = require('./log/index')
 
 // Init
 const app = express()

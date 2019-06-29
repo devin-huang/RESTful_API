@@ -4,7 +4,7 @@ const fs = require('fs')
 const morgan = require('morgan')
 const FileStreamRotator = require('file-stream-rotator')
 
-const logDirectory = path.join(__dirname, 'logRecord')
+const logDirectory = path.join(__dirname, 'logs')
 
 // --Start-- 创建日志根据日期记录并写入logRecord路径下的文件
 fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)

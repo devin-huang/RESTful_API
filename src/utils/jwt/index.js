@@ -1,6 +1,7 @@
 const expressJwt = require('express-jwt');
 const { secretKey } = require('./config');
 
+console.log(process.env.NODE_ENV,'<=====================>')
 // 请求header: Authorization Bearer *******
 const jwtAuth = expressJwt({
   secret: secretKey,
