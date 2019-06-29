@@ -2,16 +2,12 @@ const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
 
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
-}
-
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
   entry: './index.js',
   output: {
-    path: resolve('dist'),
+    path: path.join(__dirname, 'dist'),
     publicPath: '/',
     filename: '[name].js',
   },
