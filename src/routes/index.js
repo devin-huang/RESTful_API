@@ -17,6 +17,15 @@ let content = `<h2 style="color: cornflowerblue">环境变量为: ${process.env.
                     <a href="http://localhost:8002/productList/list">http://localhost:8002/productList/list</a>`
 
 module.exports = (app) => {
+  // 全局设置跨域请求头
+  app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By", 'express 4.17.1')
+    // res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+  })
   app.use('/index', (req, res, next)=> {
     fs.lstat(path.join(__dirname, '../uploadFiles/test.js'), function(err, stats){
       if (stats) {
@@ -29,13 +38,8 @@ module.exports = (app) => {
       } else {
         res.setHeader("ETag", crypto.createHash('md5').update('1.0.2').digest('hex'))
       }
-      res.setHeader("Access-Control-Allow-Origin", "*")
-      res.setHeader("Access-Control-Allow-Headers", "X-Requested-With")
-      res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
       // 缓存时间 （一天：60x60x24=86400 ）
       res.setHeader('Cache-Control', 'public, max-age=86400')
-      res.setHeader("X-Powered-By",' express 4.17.1')
-      // res.header("Content-Type", "application/json;charset=utf-8")
       res.send(content)
     })
   }),

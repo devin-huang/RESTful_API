@@ -3,7 +3,8 @@ const express = require('express')
 const compression = require('compression')
 
 // Import modules
-const redisConnection = require('./src/utils/redis/redisConnection')
+// 在操作系统启动redis时才引用，否则会无法连接导致启动Node报错
+// const redisConnection = require('./src/utils/redis/redisConnection')
 const swaggerDoc = require('./swagger/swaggerDoc')
 const jwtAuth = require('./src/utils/jwt')
 const Routers = require('./src/routes/index')
