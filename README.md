@@ -25,8 +25,17 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 |- package.json                    项目依赖
 ```
 
+## 使用
 
+:sunflower: :blossom: :tulip:
 
+拷贝到本地： `git clone https://github.com/devin-huang/RESTful_API.git`
+
+安装依赖： `npm install`
+
+开发环境： `npm start`
+
+生产环境： `npm run build`
 
 ## MVC模式
 
