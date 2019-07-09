@@ -24,23 +24,33 @@ module.exports = (app) => {
     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
     res.header("X-Powered-By", 'express 4.17.1')
     // res.header("Content-Type", "application/json;charset=utf-8");
+    // 缓存时间 （一天：60x60x24=86400 ）
+    res.setHeader('Cache-Control', 'public, max-age=86400')
     next();
   })
   app.use('/index', (req, res, next)=> {
     fs.lstat(path.join(__dirname, '../uploadFiles/test.js'), function(err, stats){
-      if (stats) {
-        let modifyTime = new Date(stats.mtime).getTime()
-        // 获取文件的更新时间
-        res.setHeader("If-Modified-Since", modifyTime)
-      }
-      if (req.headers['if-none-match']) {
-        // res.statusCode = 304
-      } else {
-        res.setHeader("ETag", crypto.createHash('md5').update('1.0.2').digest('hex'))
-      }
-      // 缓存时间 （一天：60x60x24=86400 ）
-      res.setHeader('Cache-Control', 'public, max-age=86400')
-      res.send(content)
+      let promise1 = new Promise((resolve, reject)=>{
+        if (stats) {
+          let result = null
+          let modifyTime = new Date(stats.mtime).getTime()
+          // 获取文件的更新时间
+          res.setHeader('Last-Modified', modifyTime)
+          
+          // 设置eTag
+          res.setHeader("ETag", crypto.createHash('md5').update('1.0.2').digest('hex'))
+          
+          result = req.get('If-Modified-Since') ==  res.get('Last-Modified')
+          && req.get('If-None-Match') ==  res.get('ETag') ? true : false
+          resolve(result)
+        }
+      })
+      promise1.then((result)=>{
+        if (result) {
+          res.status(304)
+        }
+        res.send(content)
+      })
     })
   }),
   app.use('/user', user),
