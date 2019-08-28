@@ -2,7 +2,7 @@
 
 :sunflower: :blossom: :tulip:
 
-Node单线程、异步非阻塞I/O模型、V8引擎等特性在现代互联网性能优越，且是基于JavaScript即能实现服务端；
+Node单线程、异步非阻塞I/O模型、事件机制、V8引擎等特性在现代互联网性能优越，且是基于JavaScript即能实现服务端；
 
 Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X` 、数据库 `Mysql` 、 `MVC模式` 、 `Swagger` 、 `RESTful规范`实现API接口
 
