@@ -14,7 +14,7 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 |- /src                            
   |- controller                    MVC中的C层
   |- model                         MVC中的M层
-  |- routes                        路由文件
+  |- routes                        MVC中的V层及路由文件
   |- uploadFiles                   上传文件夹
   |- utils                         工具
     |- jwt                         jwt验证
