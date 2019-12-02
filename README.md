@@ -2,6 +2,18 @@
 
 :sunflower: :blossom: :tulip:
 
+常用依赖插件：
+
+- `http` 搭建HTTP服务
+
+- `fs` 操作文件
+
+- `path` 路径相关操作
+
+- `stream` 采用数据块（chunk）的方式读取数据，每收到一次数据，就存入缓存
+
+- `os` 操作系统相关操作
+
 Node单线程、异步非阻塞I/O模型、事件机制、V8引擎等特性在现代互联网性能优越，且是基于JavaScript即能实现服务端；
 
 Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X` 、数据库 `Mysql` 、 `MVC模式` 、 `Swagger` 、 `RESTful规范`实现API接口
