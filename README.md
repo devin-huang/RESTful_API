@@ -190,9 +190,17 @@ requirepass 123
 - 成功则弹出：requirepass 123
 ```
 
-## 单元测试
+## 单元测试 Mocha
 
 ## 性能优化
+
+> Nginx 反向代理与负载均衡
+
+> 异步处理函数
+
+> 以流（stream）方式处理数据
+
+> 缓存静态文件
 
 ## webapck
 
