@@ -2,6 +2,14 @@
 
 :sunflower: :blossom: :tulip:
 
+ - 高并发处理
+    - 每个Node.js进程只有一个主线程在执行程序代码，形成一个执行栈（execution context stack)。
+    - 主线程之外，还维护了一个"事件队列"（Event queue）。当用户的网络请求或者其它的异步操作到来时，node都会把它放到Event Queue之中，此时并不会立即执行它，代码也不会被阻塞，继续往下走，直到主线程代码执行完毕。
+    - 主线程代码执行完毕完成后，然后通过Event Loop，也就是事件循环机制，开始到Event Queue的开头取出第一个事件，从线程池中分配一个线程去执行这个事件，接下来继续取出第二个事件，再从线程池中分配一个线程去执行，然后第三个，第四个。主线程不断的检查事件队列中是否有未执行的事件，直到事件队列中所有事件都执行完了，此后每当有新的事件加入到事件队列中，都会通知主线程按顺序取出交EventLoop处理。当有事件执行完毕后，会通知主线程，主线程执行回调，线程归还给线程池
+
+## 服务器集群
+> 前端 -> nginx负载均衡 -> Node服务器（过滤后端返回没用的数据）-> redis缓存 -> java服务器 -> 数据库
+
 常用依赖插件：
 
 - `http` 搭建HTTP服务
@@ -78,7 +86,6 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 2. (Mysql使用教程)[http://www.runoob.com/mysql/mysql-install.html]
 
 3. 使用Intelli IDEA 设置可视化Mysql
-
 
 
 
@@ -195,6 +202,12 @@ requirepass 123
 ## 性能优化
 
 > Nginx 反向代理与负载均衡
+
+> `fast-json-stringify` 规范JSON格式，免去识别类型消耗
+
+> `bluebird` 替代promise执行异步（promise在服务端有隐藏的消耗），但需要使用async/await
+
+> `提升GC的处理` 禁止使用大对象缓存，导致GC过慢，所以使用缓存或者redis存储服务器
 
 > 异步处理函数
 
