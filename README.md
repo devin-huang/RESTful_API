@@ -14,6 +14,8 @@
 
 - `http` 搭建HTTP服务
 
+- `url` 获取GET / POST请求的属性
+
 - `fs` 操作文件
 
 - `path` 路径相关操作
@@ -109,13 +111,11 @@ Node越来越备受关注，所以基于前后端分离使用框架 `express 4.X
 
 
 
-
 ## log（日志）
 
 :sunflower: :blossom: :tulip:
 
 主要使用 `morgan` 完成日志记录，而 `file-stream-rotator` 则用于按照日期区分文件保存日志记录
-
 
 
 
